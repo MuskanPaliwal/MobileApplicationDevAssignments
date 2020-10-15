@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void moveToActivitypage(){
         Intent intent=new Intent (this,MainActivity2.class);
+        String[] names = getResources().getStringArray(R.array.name);
+        Random rand = new Random();
+        int  n = rand.nextInt(names.length -1);
+        intent.putExtra("key",names[n]);
         startActivity(intent);
     }
 
